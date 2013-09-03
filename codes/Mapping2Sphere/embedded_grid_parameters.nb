@@ -1,0 +1,190 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 6.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[      5509,        181]
+NotebookOptionsPosition[      4968,        158]
+NotebookOutlinePosition[      5305,        173]
+CellTagsIndexPosition[      5262,        170]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "Calculates", " ", "the", " ", "number", " ", "of", " ", "nodes", " ", 
+   "for", " ", "an", " ", "embedded", " ", "grid"}], "Title"]], "Input",
+ CellChangeTimes->{{3.448896824877822*^9, 3.448896850405627*^9}, 
+   3.448896896199361*^9}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "recursions", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"v", "[", "j_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"3", 
+       RowBox[{"f", "[", 
+        RowBox[{"j", "-", "1"}], "]"}]}], " ", "+", " ", 
+      RowBox[{"v", "[", 
+       RowBox[{"j", "-", "1"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"e", "[", "j_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"3", 
+       RowBox[{"v", "[", "j", "]"}]}], " ", "-", " ", "6"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"f", "[", "j_", "]"}], ":=", 
+     RowBox[{
+      RowBox[{"e", "[", "j", "]"}], "-", 
+      RowBox[{"v", "[", "j", "]"}], "+", "2"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.448896912544274*^9, 3.448896933186173*^9}, {
+  3.448896996015798*^9, 3.44889701064113*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"initial", " ", "conditions"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"v", "[", "0", "]"}], "=", "12"}], ";", " ", 
+   RowBox[{
+    RowBox[{"e", "[", "0", "]"}], "=", "30"}], ";", " ", 
+   RowBox[{
+    RowBox[{"f", "[", "0", "]"}], "=", "20"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.44889701287581*^9, 3.448897037724398*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"j", ",", 
+       RowBox[{"f", "[", "j", "]"}], ",", 
+       RowBox[{"e", "[", "j", "]"}], ",", 
+       RowBox[{"v", "[", "j", "]"}], ",", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{
+          RowBox[{"v", "[", "j", "]"}], "-", "12"}], ")"}], "/", "60"}]}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "0", ",", "10"}], "}"}]}], "]"}], ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"None", ",", 
+      RowBox[{"{", 
+       RowBox[{
+       "\"\<j\>\"", ",", "\"\<faces\>\"", ",", "\"\<edges\>\"", ",", 
+        "\"\<vertices\>\"", ",", "\"\<generators\>\""}], "}"}]}], "}"}]}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.448897082596505*^9, 3.44889713842311*^9}, {
+  3.44890281380543*^9, 3.448902833708626*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      TagBox["\<\"j\"\>",
+       HoldForm], 
+      TagBox["\<\"faces\"\>",
+       HoldForm], 
+      TagBox["\<\"edges\"\>",
+       HoldForm], 
+      TagBox["\<\"vertices\"\>",
+       HoldForm], 
+      TagBox["\<\"generators\"\>",
+       HoldForm]},
+     {"0", "20", "30", "12", "0"},
+     {"1", "140", "210", "72", "1"},
+     {"2", "980", "1470", "492", "8"},
+     {"3", "6860", "10290", "3432", "57"},
+     {"4", "48020", "72030", "24012", "400"},
+     {"5", "336140", "504210", "168072", "2801"},
+     {"6", "2352980", "3529470", "1176492", "19608"},
+     {"7", "16470860", "24706290", "8235432", "137257"},
+     {"8", "115296020", "172944030", "57648012", "960800"},
+     {"9", "807072140", "1210608210", "403536072", "6725601"},
+     {"10", "5649504980", "8474257470", "2824752492", "47079208"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxDividers->{
+     "Columns" -> {{False}}, "ColumnsIndexed" -> {}, 
+      "Rows" -> {False, True, {False}, False}, "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}],
+   {None, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {
+     None, {"j", "faces", "edges", "vertices", "generators"}}]]]], "Output",
+ CellChangeTimes->{3.448897144473535*^9, 3.448902837639322*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"22", " ", "60"}], " ", "+", " ", "12"}]], "Input",
+ CellChangeTimes->{{3.449436283405821*^9, 3.449436285513164*^9}}],
+
+Cell[BoxData["1332"], "Output",
+ CellChangeTimes->{3.449436286045462*^9}]
+}, Open  ]]
+},
+WindowSize->{1366, 697},
+WindowMargins->{{0, Automatic}, {25, Automatic}},
+FrontEndVersion->"7.0 for Linux x86 (32-bit) (February 25, 2009)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[545, 20, 274, 6, 60, "Input"],
+Cell[822, 28, 869, 26, 99, "Input"],
+Cell[1694, 56, 409, 11, 55, "Input"],
+Cell[CellGroupData[{
+Cell[2128, 71, 899, 26, 32, "Input"],
+Cell[3030, 99, 1658, 45, 205, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4725, 149, 151, 3, 32, "Input"],
+Cell[4879, 154, 73, 1, 31, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
